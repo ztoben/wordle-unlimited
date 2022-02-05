@@ -37,6 +37,7 @@
   margin: .125em;
   padding: .5em;
   background-color: lightgray;
+  text-transform: uppercase;
 }
 
 .keyboard-key--utility {
