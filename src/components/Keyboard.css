@@ -26,15 +26,36 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  min-width: 3em;
+  min-width: 1.5em;
+  max-width: 3em;
+  flex: 1;
   height: 4em;
   border-radius: 0.25em;
   border: 1px solid black;
   background-color: #fff;
   cursor: pointer;
-  margin: .25em;
+  margin: .125em;
   padding: .5em;
   background-color: lightgray;
+}
+
+.keyboard-key--utility {
+  font-weight: bold;
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 4em;
+  border-radius: 0.25em;
+  border: 1px solid black;
+  background-color: #fff;
+  cursor: pointer;
+  margin: .125em;
+  padding: .5em;
+  background-color: lightgray;
+  max-width: unset;
 }
 
 .keyboard-key:hover {

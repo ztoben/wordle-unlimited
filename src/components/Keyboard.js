@@ -9,7 +9,7 @@ const keys = [
 
 function getKeyClass(guesses, key, correctGuesses, inWordGuesses) {
   if (key === 'Backspace' || key === 'Enter') {
-    return 'keyboard-key';
+    return 'keyboard-key--utility';
   }
 
   if (correctGuesses.includes(key)) {
