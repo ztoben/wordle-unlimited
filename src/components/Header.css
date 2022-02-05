@@ -1,0 +1,20 @@
+.App-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.App-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-icon-container > img {
+  margin: 5px;
+  cursor: pointer;
+}

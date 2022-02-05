@@ -1,0 +1,30 @@
+.Tile {
+  text-transform: capitalize;
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border: 2px solid black;
+  margin: 2px;
+  background-color: white;
+  color: black;
+}
+
+.Tile--guessed {
+  background-color: #3a3a3c;
+  color: white;
+}
+
+.Tile--in-word {
+  background-color: #b59f3b;
+  color: white;
+}
+
+.Tile--correct {
+  background-color: #538d4e;
+  color: white;
+}

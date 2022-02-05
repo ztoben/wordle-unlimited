@@ -1,0 +1,57 @@
+.keyboard-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  max-width: 500px;
+  width: 100%;
+}
+
+.keyboard-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 500px;
+}
+
+.keyboard-key {
+  font-weight: bold;
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  min-width: 3em;
+  height: 4em;
+  border-radius: 0.25em;
+  border: 1px solid black;
+  background-color: #fff;
+  cursor: pointer;
+  margin: .25em;
+  padding: .5em;
+  background-color: lightgray;
+}
+
+.keyboard-key:hover {
+  opacity: .8;
+}
+
+.keyboard-key--correct {
+  background-color: #538d4e;
+  color: white;
+}
+
+.keyboard-key--in-word {
+  background-color: #b59f3b;
+  color: white;
+}
+
+.keyboard-key--guessed {
+  background-color: #3a3a3c;
+  color: white;
+}
