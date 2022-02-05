@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useCallback} from 'react';
+import Div100vh from 'react-div-100vh'
 import {words} from './words';
 import GameBoard from './components/GameBoard';
 import Keyboard from './components/Keyboard';
@@ -91,33 +92,35 @@ function App() {
   }, [handleKeyDown]);
 
   return (
-    <div className="App">
-      <Header resetGame={resetGame} />
-      <GameBoard guess={guess} guesses={guesses} word={word} />
-      <Keyboard
-        guesses={guesses}
-        correctGuesses={correctGuesses}
-        inWordGuesses={inWordGuesses}
-        handleKeyDown={handleKeyDown}
-      />
-      <Modal
-        open={gameState === GAME_STATES.LOST}
-        title="You lost!"
-        onClose={resetGame}
-      >
-        <p>The word was <b>{word}</b>.</p>
-        <p>Better luck next time!</p>
-        <button onClick={resetGame}>Play again</button>
-      </Modal>
-      <Modal
-        open={gameState === GAME_STATES.WON}
-        title="You won!"
-        onClose={resetGame}
-      >
-        <p>The guessed the word <b>{word}</b> in <b>{guesses.length}</b> guesses!</p>
-        <button onClick={resetGame}>Play again</button>
-      </Modal>
-    </div>
+    <Div100vh>
+      <div className="App">
+        <Header resetGame={resetGame} />
+        <GameBoard guess={guess} guesses={guesses} word={word} />
+        <Keyboard
+          guesses={guesses}
+          correctGuesses={correctGuesses}
+          inWordGuesses={inWordGuesses}
+          handleKeyDown={handleKeyDown}
+        />
+        <Modal
+          open={gameState === GAME_STATES.LOST}
+          title="You lost!"
+          onClose={resetGame}
+        >
+          <p>The word was <b>{word}</b>.</p>
+          <p>Better luck next time!</p>
+          <button onClick={resetGame}>Play again</button>
+        </Modal>
+        <Modal
+          open={gameState === GAME_STATES.WON}
+          title="You won!"
+          onClose={resetGame}
+        >
+          <p>The guessed the word <b>{word}</b> in <b>{guesses.length}</b> guesses!</p>
+          <button onClick={resetGame}>Play again</button>
+        </Modal>
+      </div>
+    </Div100vh>
   );
 }
 
