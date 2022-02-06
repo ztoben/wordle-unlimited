@@ -1,9 +1,10 @@
 .keyboard-container {
   display: flex;
   flex-direction: column;
-  padding-bottom: .5em;
   max-width: 500px;
   width: 100%;
+  padding: .125em;
+  align-items: center;
 }
 
 .keyboard-row {
@@ -14,7 +15,7 @@
   align-items: center;
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: calc(100% - .25em);
   max-width: 500px;
 }
 
@@ -29,7 +30,7 @@
   min-width: 1.5em;
   max-width: 3em;
   flex: 1;
-  height: 4em;
+  height: 4.5em;
   border-radius: 0.25em;
   cursor: pointer;
   margin: .125em;
@@ -37,6 +38,10 @@
   background-color: #d3d6da;
   text-transform: uppercase;
   border: none;
+}
+
+.keyboard-spacer {
+  flex: .5;
 }
 
 .keyboard-key--utility {
@@ -47,14 +52,15 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  height: 4em;
+  height: 4.5em;
   border-radius: 0.25em;
   cursor: pointer;
   margin: .125em;
   padding: .5em;
   background-color: #d3d6da;
-  max-width: unset;
+  max-width: 4em;
   border: none;
+  flex: 1;
 }
 
 .keyboard-key:hover {

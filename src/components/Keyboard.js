@@ -1,9 +1,10 @@
 import React from 'react';
+import Backspace from '../icons/backspace.svg';
 import './Keyboard.css';
 
 const keys = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+  ['spacer', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'spacer'],
   ['Enter', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Backspace']
 ];
 
@@ -37,15 +38,19 @@ export default function Keyboard({
     <div className="keyboard-container">
       {keys.map((row, rowIndex) => (
         <div className="keyboard-row" key={rowIndex}>
-          {row.map((key, keyIndex) => (
-            <button
-              className={getKeyClass(guesses, key, correctGuesses, inWordGuesses)}
-              key={keyIndex}
-              onClick={() => handleKeyDown({key})}
-            >
-              {key}
-            </button>
-          ))}
+          {row.map((key, keyIndex) => {
+            if (key === 'spacer') return <div key={keyIndex} className="keyboard-spacer" />;
+            
+            return (
+              <button
+                className={getKeyClass(guesses, key, correctGuesses, inWordGuesses)}
+                key={keyIndex}
+                onClick={() => handleKeyDown({key})}
+              >
+                {key === 'Backspace' ? <img src={Backspace} alt="Backspace" /> : key}
+              </button>
+            );
+          })}
         </div>
       ))}
     </div>
