@@ -16,17 +16,8 @@
   width: 100%;
   min-height: 100px;
   background-color: white;
-  padding: 25px;
-  margin: 25px;
-}
-
-button {
-  padding: 10px;
-  border: 1px solid black;
-  cursor: pointer;
-  height: 40px;
-  min-width: 40px;
-  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
 }
 
 .Modal-header {
@@ -37,4 +28,29 @@ button {
   max-width: 500px;
   width: 100%;
   text-align: center;
+  padding-bottom: 20px;
+}
+
+.Modal-header > h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.Modal-button--close {
+  border-radius: 0;
+  background-color: white;
+  font-weight: bold;
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  padding: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 5px;
 }

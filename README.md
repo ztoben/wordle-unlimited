@@ -1,6 +1,6 @@
 # Wordle Unlimited
 
-Like wordle, only no limits.
+Like wordle, but more.
 
 Based on https://www.powerlanguage.co.uk/wordle/.
 

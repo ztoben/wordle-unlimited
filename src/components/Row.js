@@ -1,9 +1,10 @@
 import React from 'react';
 import Tile from './Tile';
 import './Row.css';
+import { GAME_STATES } from '../gameStates';
 
-export default function Row({index, guesses, guess, word}) {
-  const isCurrentRow = index === guesses.length;
+export default function Row({index, guesses, guess, word, gameState}) {
+  const isCurrentRow = gameState === GAME_STATES.PLAYING && index === guesses.length;
 
   return (
     <div className="Row">

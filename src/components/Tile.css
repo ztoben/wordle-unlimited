@@ -10,23 +10,30 @@
   max-height: 55px;
   width: calc((100vw / 5) - .5em);
   height: calc((100vw / 5) - .5em);
-  border: 2px solid black;
+  border: 2px solid #d3d6da;
   margin: .1em;
   background-color: white;
   color: black;
 }
 
+.Tile--current-row {
+  border: 2px solid #878a8c;
+}
+
 .Tile--guessed {
-  background-color: #3a3a3c;
+  background-color: #787c7e;
+  border: 2px solid #787c7e;
   color: white;
 }
 
 .Tile--in-word {
-  background-color: #b59f3b;
+  background-color: #c9b458;
+  border: 2px solid #c9b458;
   color: white;
 }
 
 .Tile--correct {
-  background-color: #538d4e;
+  background-color: #6aaa64;
+  border: 2px solid #6aaa64;
   color: white;
 }

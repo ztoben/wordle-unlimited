@@ -1,0 +1,21 @@
+.Settings-modal--content {
+  text-align: left;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid black;
+}
+
+li > div > a {
+  color: black;
+  text-decoration: underline;
+}

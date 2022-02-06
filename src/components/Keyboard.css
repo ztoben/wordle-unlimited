@@ -31,13 +31,12 @@
   flex: 1;
   height: 4em;
   border-radius: 0.25em;
-  border: 1px solid black;
-  background-color: #fff;
   cursor: pointer;
   margin: .125em;
   padding: .5em;
-  background-color: lightgray;
+  background-color: #d3d6da;
   text-transform: uppercase;
+  border: none;
 }
 
 .keyboard-key--utility {
@@ -50,13 +49,12 @@
   align-items: center;
   height: 4em;
   border-radius: 0.25em;
-  border: 1px solid black;
-  background-color: #fff;
   cursor: pointer;
   margin: .125em;
   padding: .5em;
-  background-color: lightgray;
+  background-color: #d3d6da;
   max-width: unset;
+  border: none;
 }
 
 .keyboard-key:hover {
@@ -64,16 +62,16 @@
 }
 
 .keyboard-key--correct {
-  background-color: #538d4e;
+  background-color: #6aaa64;
   color: white;
 }
 
 .keyboard-key--in-word {
-  background-color: #b59f3b;
+  background-color: #c9b458;
   color: white;
 }
 
 .keyboard-key--guessed {
-  background-color: #3a3a3c;
+  background-color: #787c7e;
   color: white;
 }

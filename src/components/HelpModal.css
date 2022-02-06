@@ -1,0 +1,7 @@
+.Help-modal--content {
+  text-align: left;
+}
+
+.Help-modal--content > .Row {
+  justify-content: start;
+}

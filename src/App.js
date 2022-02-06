@@ -1,17 +1,16 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import { use100vh } from 'react-div-100vh';
+import { GAME_STATES } from './gameStates';
 import {words} from './words';
 import GameBoard from './components/GameBoard';
 import Keyboard from './components/Keyboard';
 import Header from './components/Header';
-import './App.css';
 import Modal from './components/Modal';
+import './App.css';
 
-const GAME_STATES = {
-  PLAYING: 'PLAYING',
-  WON: 'WON',
-  LOST: 'LOST',
-};
+function delayCallback(callback, timeout = 2000) {
+  setTimeout(callback, timeout);
+}
 
 function getRandomWord() {
   return words[Math.floor(Math.random() * words.length)];
@@ -21,6 +20,7 @@ function App() {
   const browserHeight = use100vh();
 
   const [gameState, setGameState] = useState(GAME_STATES.PLAYING);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [word, setWord] = useState('');
   const [guess, setGuess] = useState('');
   const [guesses, setGuesses] = useState([]);
@@ -43,6 +43,14 @@ function App() {
     
     setWord(randomWord);
   }, []);
+
+  useEffect(() => {
+    if (gameState === GAME_STATES.WON || gameState === GAME_STATES.LOST) {
+      delayCallback(() => setDialogOpen(true));
+    } else if (gameState === GAME_STATES.PLAYING) {
+      setDialogOpen(false);
+    }
+  }, [gameState]);
 
   const handleKeyDown = useCallback((e) => {
     const validLetters = /^[A-Za-z]+$/;
@@ -96,7 +104,7 @@ function App() {
   return (
     <div className="App" style={{height: browserHeight}}>
       <Header resetGame={resetGame} />
-      <GameBoard guess={guess} guesses={guesses} word={word} />
+      <GameBoard guess={guess} guesses={guesses} word={word} gameState={gameState} />
       <Keyboard
         guesses={guesses}
         correctGuesses={correctGuesses}
@@ -104,18 +112,18 @@ function App() {
         handleKeyDown={handleKeyDown}
       />
       <Modal
-        open={gameState === GAME_STATES.LOST}
+        open={gameState === GAME_STATES.LOST && dialogOpen}
         title="You lost!"
-        onClose={resetGame}
+        onClose={() => setDialogOpen(false)}
       >
         <p>The word was <b>{word}</b>.</p>
         <p>Better luck next time!</p>
         <button onClick={resetGame}>Play again</button>
       </Modal>
       <Modal
-        open={gameState === GAME_STATES.WON}
+        open={gameState === GAME_STATES.WON && dialogOpen}
         title="You won!"
-        onClose={resetGame}
+        onClose={() => setDialogOpen(false)}
       >
         <p>The guessed the word <b>{word}</b> in <b>{guesses.length}</b> guesses!</p>
         <button onClick={resetGame}>Play again</button>
