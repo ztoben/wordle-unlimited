@@ -1,7 +1,7 @@
 import React from 'react';
 import './Modal.css';
 
-export default function Modal({children, title, open, onClose}) {
+export default function Modal({ children, title, open, onClose }) {
   if (!open) return null;
 
   return (
@@ -9,7 +9,9 @@ export default function Modal({children, title, open, onClose}) {
       <div className="Modal-container">
         <div className="Modal-header">
           <h2>{title}</h2>
-          <button className="Modal-button--close" onClick={onClose}>X</button>
+          <button className="Modal-button--close" onClick={onClose}>
+            X
+          </button>
         </div>
         {children}
       </div>

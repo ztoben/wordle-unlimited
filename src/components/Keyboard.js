@@ -5,7 +5,7 @@ import './Keyboard.css';
 const keys = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
   ['spacer', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'spacer'],
-  ['Enter', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Backspace']
+  ['Enter', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'Backspace'],
 ];
 
 function getKeyClass(guesses, key, correctGuesses, inWordGuesses) {
@@ -32,22 +32,32 @@ export default function Keyboard({
   guesses,
   correctGuesses,
   inWordGuesses,
-  handleKeyDown
+  handleKeyDown,
 }) {
   return (
     <div className="keyboard-container">
       {keys.map((row, rowIndex) => (
         <div className="keyboard-row" key={rowIndex}>
           {row.map((key, keyIndex) => {
-            if (key === 'spacer') return <div key={keyIndex} className="keyboard-spacer" />;
-            
+            if (key === 'spacer')
+              return <div key={keyIndex} className="keyboard-spacer" />;
+
             return (
               <button
-                className={getKeyClass(guesses, key, correctGuesses, inWordGuesses)}
+                className={getKeyClass(
+                  guesses,
+                  key,
+                  correctGuesses,
+                  inWordGuesses
+                )}
                 key={keyIndex}
-                onClick={() => handleKeyDown({key})}
+                onClick={() => handleKeyDown({ key })}
               >
-                {key === 'Backspace' ? <img src={Backspace} alt="Backspace" /> : key}
+                {key === 'Backspace' ? (
+                  <img src={Backspace} alt="Backspace" />
+                ) : (
+                  key
+                )}
               </button>
             );
           })}

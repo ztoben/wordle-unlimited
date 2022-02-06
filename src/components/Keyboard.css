@@ -3,7 +3,7 @@
   flex-direction: column;
   max-width: 500px;
   width: 100%;
-  padding: .25em;
+  padding: 0.25em;
   align-items: center;
 }
 
@@ -15,7 +15,7 @@
   align-items: center;
   margin: 0;
   padding: 0;
-  width: calc(100% - .5em);
+  width: calc(100% - 0.5em);
   max-width: 500px;
 }
 
@@ -33,15 +33,15 @@
   height: 55px;
   border-radius: 0.25em;
   cursor: pointer;
-  margin: .25em;
-  padding: .5em;
+  margin: 0.25em;
+  padding: 0.5em;
   background-color: #d3d6da;
   text-transform: uppercase;
   border: none;
 }
 
 .keyboard-spacer {
-  flex: .5;
+  flex: 0.5;
 }
 
 .keyboard-key--utility {
@@ -55,8 +55,8 @@
   height: 55px;
   border-radius: 0.25em;
   cursor: pointer;
-  margin: .25em;
-  padding: .5em;
+  margin: 0.25em;
+  padding: 0.5em;
   background-color: #d3d6da;
   max-width: 5em;
   border: none;
@@ -65,7 +65,7 @@
 }
 
 .keyboard-key:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .keyboard-key--correct {

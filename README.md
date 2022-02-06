@@ -5,6 +5,7 @@ Like wordle, but more.
 Based on https://www.powerlanguage.co.uk/wordle/.
 
 ## Running locally
+
 ### `npm start`
 
 Runs the app in the development mode.\
