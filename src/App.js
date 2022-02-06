@@ -5,7 +5,7 @@ import {words} from './words';
 import GameBoard from './components/GameBoard';
 import Keyboard from './components/Keyboard';
 import Header from './components/Header';
-import Modal from './components/Modal';
+import Alert from './components/Alert';
 import './App.css';
 
 function delayCallback(callback, timeout = 2000) {
@@ -20,7 +20,7 @@ function App() {
   const browserHeight = use100vh();
 
   const [gameState, setGameState] = useState(GAME_STATES.PLAYING);
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [alertOpen, setAlertOpen] = useState(false);
   const [word, setWord] = useState('');
   const [guess, setGuess] = useState('');
   const [guesses, setGuesses] = useState([]);
@@ -38,6 +38,10 @@ function App() {
     setGameState(GAME_STATES.PLAYING);
   };
 
+  const toggleAlert = () => {
+    setAlertOpen(!alertOpen);
+  };
+
   useEffect(() => {
     const randomWord = getRandomWord();
     
@@ -46,9 +50,9 @@ function App() {
 
   useEffect(() => {
     if (gameState === GAME_STATES.WON || gameState === GAME_STATES.LOST) {
-      delayCallback(() => setDialogOpen(true));
+      delayCallback(() => setAlertOpen(true));
     } else if (gameState === GAME_STATES.PLAYING) {
-      setDialogOpen(false);
+      setAlertOpen(false);
     }
   }, [gameState]);
 
@@ -111,23 +115,23 @@ function App() {
         inWordGuesses={inWordGuesses}
         handleKeyDown={handleKeyDown}
       />
-      <Modal
-        open={gameState === GAME_STATES.LOST && dialogOpen}
-        title="You lost!"
-        onClose={() => setDialogOpen(false)}
+      <Alert
+        open={gameState === GAME_STATES.LOST && alertOpen}
+        title="You lost..."
+        onClose={toggleAlert}
       >
         <p>The word was <b>{word}</b>.</p>
         <p>Better luck next time!</p>
         <button onClick={resetGame}>Play again</button>
-      </Modal>
-      <Modal
-        open={gameState === GAME_STATES.WON && dialogOpen}
+      </Alert>
+      <Alert
+        open={gameState === GAME_STATES.WON && alertOpen}
         title="You won!"
-        onClose={() => setDialogOpen(false)}
+        onClose={toggleAlert}
       >
         <p>The guessed the word <b>{word}</b> in <b>{guesses.length}</b> guesses!</p>
         <button onClick={resetGame}>Play again</button>
-      </Modal>
+      </Alert>
     </div>
   );
 }
